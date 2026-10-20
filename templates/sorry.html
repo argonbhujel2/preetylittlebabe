@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}I’m sorry · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel section" id="sorry">
+  <div class="section-icon">💗</div>
+  <p class="eyebrow">from my heart</p>
+  <h2>Princess, I’m sorry. 🥹</h2>
+  <p class="body-copy">I’m sorry if I hurt your feelings. Hajurko feelings matter to me, and I want to understand them instead of rushing past them. I’m here to listen whenever hajur ready hunuhunchha.</p>
+  <button class="button primary" id="sorryBtn">Tap for a tiny apology 💞</button>
+  <p id="sorryReply" class="reply" aria-live="polite"></p>
+  <div class="button-row" style="margin-top:28px;justify-content:center">
+    <a class="button primary" href="{{ url_for('anger') }}">Next → 🌶️</a>
+  </div>
+</section>
+{% endblock %}

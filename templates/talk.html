@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Talk · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel section">
+  <div class="teddy small-teddy">🐻‍❄️</div>
+  <h2>Princess Roshni 💐</h2>
+  <p class="body-copy">Hajur mero lagi special hunuhunchha. I don’t want this little website to replace a real conversation—I’d rather hear how hajur feel, understand what happened, and do better.</p>
+  <button class="button soft" id="secretBtn">Open a tiny secret 🎁</button>
+  <p id="secretMessage" class="reply hidden">Breaking news: Princess Roshni is officially the CEO of my heart. 🫡💗 Teddy and I are both reporting for apology duty.</p>
+  <div class="button-row" style="margin-top:28px;justify-content:center">
+    <a class="button primary" href="{{ url_for('final') }}">Next → 🧸💗</a>
+  </div>
+</section>
+{% endblock %}

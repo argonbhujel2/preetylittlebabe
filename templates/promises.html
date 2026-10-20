@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Promises · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel section">
+  <p class="eyebrow">promises, not pressure</p>
+  <h2>What I want to do better 🌷</h2>
+  <div class="promise-list">
+    <div>👂 <span><b>Listen properly</b><small>Let hajur finish, and try to understand first.</small></span></div>
+    <div>🫶 <span><b>Respect boundaries</b><small>Your comfort and choices matter.</small></span></div>
+    <div>🌱 <span><b>Build trust with actions</b><small>Be consistent, honest, and patient.</small></span></div>
+  </div>
+  <div class="button-row" style="margin-top:28px;justify-content:center">
+    <a class="button primary" href="{{ url_for('play') }}">Next → 🎮</a>
+  </div>
+</section>
+{% endblock %}

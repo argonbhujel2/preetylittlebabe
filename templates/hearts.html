@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Hearts · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel section">
+  <p class="eyebrow">one more tiny game</p>
+  <h2>Collect 3 hearts 💖</h2>
+  <p class="muted">Tap the hearts to collect them. It’s okay if you don’t feel like playing.</p>
+  <div class="heart-game" id="heartGame">
+    <button class="heart-pick" aria-label="Collect heart 1">💗</button>
+    <button class="heart-pick" aria-label="Collect heart 2">💖</button>
+    <button class="heart-pick" aria-label="Collect heart 3">💕</button>
+  </div>
+  <p id="heartCount" class="reply">Hearts: 0 / 3</p>
+  <div id="heartSurprise" class="letter hidden">
+    <h3>One promise from me 🫶🏻</h3>
+    <p>I’ll try to listen fully, respect your boundaries, and show care through my actions—not just words. You don’t owe me an instant smile or forgiveness. ❤️</p>
+  </div>
+  <div class="button-row" style="margin-top:28px;justify-content:center">
+    <a class="button primary" href="{{ url_for('talk') }}">Next → 💬</a>
+  </div>
+</section>
+{% endblock %}

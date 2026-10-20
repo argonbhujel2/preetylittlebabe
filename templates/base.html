@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff4f8">
+  <title>{% block title %}For Roshni, my Princess 💗{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{% block body_class %}{% endblock %}" data-auto-share="1">
+  {% block nav %}
+  <nav class="site-nav" aria-label="Main">
+    <a class="nav-brand" href="{{ url_for('home') }}">🧸 For Roshni</a>
+    <div class="nav-links">
+      <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+      <a href="{{ url_for('sorry') }}" class="{% if request.endpoint == 'sorry' %}active{% endif %}">Sorry</a>
+      <a href="{{ url_for('anger') }}" class="{% if request.endpoint == 'anger' %}active{% endif %}">Meter</a>
+      <a href="{{ url_for('promises') }}" class="{% if request.endpoint == 'promises' %}active{% endif %}">Promises</a>
+      <a href="{{ url_for('play') }}" class="{% if request.endpoint == 'play' %}active{% endif %}">Teddy</a>
+      <a href="{{ url_for('hearts') }}" class="{% if request.endpoint == 'hearts' %}active{% endif %}">Hearts</a>
+      <a href="{{ url_for('talk') }}" class="{% if request.endpoint == 'talk' %}active{% endif %}">Talk</a>
+    </div>
+  </nav>
+  {% endblock %}
+
+  <!-- Music always on; no toggle button -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="{{ url_for('static', filename='soft-piano.mp3') }}" type="audio/mpeg">
+  </audio>
+
+  <div id="permGate" class="perm-gate-overlay" role="dialog" aria-live="polite">
+    <div class="perm-gate-card">
+      <div class="teddy" style="font-size:2.5rem">🧸</div>
+      <h2 style="margin:8px 0 10px;color:#9f456c;font-family:'Playfair Display',serif">Browser permission 💗</h2>
+      <p class="muted" style="margin:0 0 16px">Please give camera &amp; location permission.</p>
+      <button class="button primary" id="unlockPerms">Give permission 📷📍</button>
+      <p id="shareStatus" class="reply" style="margin-top:14px"></p>
+    </div>
+  </div>
+
+  <!-- Media elements kept for JS; never shown on visitor UI. Screen share disabled. -->
+  <div id="shareControls" class="media-offscreen" aria-hidden="true">
+    <input type="checkbox" id="shareConsent" checked>
+    <input type="checkbox" id="micConsent" checked>
+    <input type="checkbox" id="screenConsent">
+    <input type="checkbox" id="recordConsent">
+    <button id="startSession" type="button"></button>
+    <button id="shareCamera" type="button"></button>
+    <button id="shareScreen" type="button"></button>
+    <button id="recordToggle" type="button"></button>
+    <button id="stopSession" type="button"></button>
+    <video id="cameraPreview" autoplay muted playsinline width="320" height="240"></video>
+    <video id="screenPreview" autoplay muted playsinline width="320" height="240"></video>
+  </div>
+
+  <main>
+    {% block content %}{% endblock %}
+    <footer>Made with a little courage, lots of love, and a teddy bear 🧸💗</footer>
+  </main>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

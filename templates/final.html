@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Shall we talk? · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel final-panel section">
+  <div class="teddy">🧸💗</div>
+  <h2>अब शान्त भएर कुरा गरौँ?</h2>
+  <p class="muted">Only if hajur feel ready. I’ll respect your answer.</p>
+  <div class="button-row">
+    <button class="button primary" id="talkYes">हुन्छ, कुरा गरौँ ❤️</button>
+    <button class="button soft" id="talkLater">अझै रिसाएकी छु 😤</button>
+  </div>
+  <p id="finalReply" class="reply" aria-live="polite"></p>
+  <div class="button-row" style="margin-top:28px;justify-content:center">
+    <a class="button soft" href="{{ url_for('home') }}">Back to Home 🏠</a>
+  </div>
+</section>
+{% endblock %}

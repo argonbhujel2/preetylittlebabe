@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Anger meter · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel section">
+  <p class="eyebrow">honest question 😅</p>
+  <h2>Princess ko anger meter? 🌶️</h2>
+  <p class="muted">Choose whatever feels true. No wrong answer.</p>
+  <div class="meter-row">
+    <span>Softie 🥹</span>
+    <strong id="angerValue">50 / 100</strong>
+    <span>Volcano 🌋</span>
+  </div>
+  <input id="anger" type="range" min="1" max="100" value="50" aria-label="Anger meter">
+  <p id="angerText" class="reply">A little upset? I’ll listen, no excuses. 💗</p>
+  <div class="button-row" style="margin-top:28px;justify-content:center">
+    <a class="button primary" href="{{ url_for('promises') }}">Next → 🌷</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Teddy · For Roshni 💗{% endblock %}
+{% block content %}
+<section class="panel section" id="challenge">
+  <p class="eyebrow">a tiny challenge 🎮</p>
+  <h2>Ekchin ko challenge? 👀</h2>
+  <p class="muted">Cute mini challenge पूरा गरेपछि special surprise।</p>
+  <div class="game-teddy" id="gameTeddy">🥺🧸</div>
+  <h3 id="teddyTitle">Make Teddy Happy 🧸💕</h3>
+  <p id="teddyText">Teddy is sad. Choose a little thing to cheer Teddy up.</p>
+  <div class="button-row" id="teddyActions">
+    <button class="button soft">Give a hug 🤗</button>
+    <button class="button soft">Send a heart 💗</button>
+    <button class="button soft">Tell a joke 😹</button>
+  </div>
+  <div id="apologyReveal" class="letter hidden" aria-live="polite">
+    <div class="letter-top">💌 A letter for my Princess</div>
+    <h3>My Cutiee 🥹❤️</h3>
+    <p>I’m really sorry for hurting your feelings. I never wanted to make you feel bad or make you question how much you mean to me.</p>
+    <p>I know that saying “sorry” alone cannot fix everything, but I genuinely want to understand your feelings, respect your boundaries, and become better through my actions. You deserve to feel respected, valued, and loved. 🫶🏻</p>
+    <p>You are special to me, and your feelings matter more than winning an argument or proving a point. I don’t expect you to forgive me immediately. I just hope you’ll give me a chance to listen to you and understand what hurt you.</p>
+    <p>If I could make one wish right now, it would be to see your beautiful smile again. 🧸💗</p>
+    <p>I’m truly sorry, my love. You mean so much to me, and I want my actions to show you that. ❤️🥹</p>
+  </div>
+  <div class="button-row" style="margin-top:28px;justify-content:center">
+    <a class="button primary" href="{{ url_for('hearts') }}">Next → 💖</a>
+  </div>
+</section>
+{% endblock %}
